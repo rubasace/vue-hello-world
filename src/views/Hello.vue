@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <p>Hello Hello Hello</p>
-    <TodoList/>
+    <TodoList title="My Tasks"/>
   </div>
 </template>
 

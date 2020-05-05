@@ -2,7 +2,7 @@
     <div class="todo-list">
         <h1>{{ title }}</h1>
         <ol>
-            <li v-for="item in items">{{item}}</li>
+            <li v-for="(item,index) in items">{{item}} <button @click="deleteElement(index)">X</button></li>
         </ol>
         <p>
             <input
@@ -11,6 +11,9 @@
                     @keypress.enter="addElement"
                     v-model="newElement"
             >
+        </p>
+        <p>
+            <button @click="clear">Clear {{items.length}} </button>
         </p>
     </div>
 </template>
@@ -21,10 +24,15 @@
     export default {
         name: "TodoList",
         components: {},
+        props: {
+            title: {
+                type: String,
+                default: "TO-DO List"
+            }
+        },
         data() {
             return {
                 items: [],
-                title: "TO-DO List",
                 newElement: ""
             }
         },
@@ -32,6 +40,12 @@
             addElement() {
                 this.items.push(this.newElement)
                 this.newElement = ""
+            },
+            clear() {
+                this.items = []
+            },
+            deleteElement(index){
+                this.items.splice(index, 1)
             }
         }
     };
