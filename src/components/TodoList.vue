@@ -1,9 +1,20 @@
 <template>
     <div class="todo-list">
         <h1>{{ title }}</h1>
-        <ol>
-            <li v-for="(item,index) in items">{{item}} <button @click="deleteElement(index)">X</button></li>
+        <p>
+            <input
+                    type="text"
+                    class="input"
+                    v-model="filter"
+            >
+        </p>
+        <ol v-show="filteredItems.length>0">
+            <li v-for="(item,index) in filteredItems" :key="index">{{item}}
+                <button @click="deleteElement(index)">X</button>
+            </li>
         </ol>
+        <p v-show="items.length===0">No tasks yet :(</p>
+        <p v-show="items.length>0 && filteredItems.length === 0">No tasks meet your criteria</p>
         <p>
             <input
                     type="text"
@@ -13,7 +24,7 @@
             >
         </p>
         <p>
-            <button @click="clear">Clear {{items.length}} </button>
+            <button @click="clear">Clear {{items.length}}</button>
         </p>
     </div>
 </template>
@@ -33,7 +44,13 @@
         data() {
             return {
                 items: [],
-                newElement: ""
+                newElement: "",
+                filter: ""
+            }
+        },
+        computed: {
+            filteredItems() {
+                return !this.filter ? this.items : this.items.filter(e => e.includes(this.filter))
             }
         },
         methods: {
@@ -44,7 +61,7 @@
             clear() {
                 this.items = []
             },
-            deleteElement(index){
+            deleteElement(index) {
                 this.items.splice(index, 1)
             }
         }
@@ -55,3 +72,4 @@
     //   @Prop() private msg!: string;
     // }
 </script>
+
