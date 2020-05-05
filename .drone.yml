@@ -9,8 +9,8 @@ steps:
         from_secret: docker_user
       password:
         from_secret: docker_pass
-      repo: registry.nasvigo.com/v2/notech/vue-hello-world
-      registry: registry.nasvigo.com/v2
+      repo: registry.nestorrente.com/v2/notech/vue-hello-world
+      registry: registry.nestorrente.com/v2
       tags: 1.0.0.${CI_BUILD_NUMBER}
     when:
       branch:
@@ -30,7 +30,7 @@ steps:
       NAMESPACE: production
       SUBDOMAIN: hello
       PULL_SECRET: regcred
-      DOCKER_REGISTRY: registry.nasvigo.com/v2/notech
+      DOCKER_REGISTRY: registry.nestorrente.com/v2/notech
     when:
       branch:
         - master
