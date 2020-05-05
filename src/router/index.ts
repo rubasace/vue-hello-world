@@ -6,7 +6,8 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
+    path: "/home",
+    alias: ["/", "/casa"],
     name: "Home",
     component: Home
   },
@@ -24,6 +25,11 @@ const routes: Array<RouteConfig> = [
     name: "Hello",
     component: () =>
       import(/* webpackChunkName: "hello" */ "../views/Hello.vue")
+  },
+  {
+    path: "/hola",
+    name: "Hola",
+    redirect: "/hello"
   }
 ];
 
