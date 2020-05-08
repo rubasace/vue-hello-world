@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li :class="done && 'done'">
     <span class="close-button" @click="remove">&times;</span>
     <input type="checkbox" v-model="done" />
     {{ item }}
@@ -35,6 +35,9 @@ li {
   text-align: left;
   border-bottom: 1px solid darken($color, 20%);
   padding: 10px 0px;
+  .done {
+    text-decoration: line-through;
+  }
 }
 
 .close-button {
@@ -44,5 +47,9 @@ li {
   font-size: 2em;
   color: #ccc;
   margin-right: 10px;
+}
+
+.done {
+  text-decoration: line-through;
 }
 </style>
