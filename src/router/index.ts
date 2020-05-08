@@ -27,6 +27,12 @@ const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "hello" */ "../views/Hello.vue")
   },
   {
+    path: "/poker",
+    name: "Poker",
+    component: () =>
+      import(/* webpackChunkName: "poker" */ "../views/Poker.vue")
+  },
+  {
     path: "/hola",
     name: "Hola",
     redirect: "/hello"
