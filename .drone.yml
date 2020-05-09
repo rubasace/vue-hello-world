@@ -16,7 +16,7 @@ steps:
       branch:
         - master
   - name: deploy
-    image: rubasace/drone-k8s
+    image: rubasace/drone-helm-k8s
     environment:
       K8S_CERT_AUTHORITY_DATA:
         from_secret: K8S_CERT_AUTHORITY_DATA
