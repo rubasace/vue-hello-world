@@ -1,0 +1,9 @@
+ingress:
+  enabled: true
+  domain: nasvigo.com
+  subdomain: hello
+
+deployment:
+  image: registry.nasvigo.com/v2/notech/vue-hello-world
+  pullSecrets:
+    - regcred
