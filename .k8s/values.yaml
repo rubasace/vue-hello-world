@@ -2,6 +2,7 @@ ingress:
   enabled: true
   domain: nasvigo.com
   subdomain: hello
+  containerPort: 80
 
 deployment:
   image: registry.nasvigo.com/v2/notech/vue-hello-world
